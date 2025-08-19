@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Create the addTask Function
     function addTask() {
-        // retrieve & trim input
-        var taskText = taskInput.value.trim();
+        // Retrieve and trim the value from the input field
+        let taskText = taskInput.value.trim();
 
-        // empty input -> alert user
+        // If empty, alert the user
         if (taskText === "") {
             alert("Please enter a task");
             return;
@@ -20,21 +20,21 @@ document.addEventListener('DOMContentLoaded', function () {
         const li = document.createElement('li');
         li.textContent = taskText;
 
-        // Remove button
+        // Create remove button
         const removeBtn = document.createElement('button');
         removeBtn.textContent = "Remove";
         removeBtn.className = 'remove-btn';
 
-        // Removal logic (onclick exactly as required)
+        // Assign onclick event to remove the li element
         removeBtn.onclick = function () {
             taskList.removeChild(li);
         };
 
-        // Append button -> li -> list
+        // Append remove button to li, then li to taskList
         li.appendChild(removeBtn);
         taskList.appendChild(li);
 
-        // Clear input
+        // Clear the input field
         taskInput.value = "";
     }
 
